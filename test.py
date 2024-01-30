@@ -18,7 +18,7 @@ class TestSchemaSniffer(unittest.TestCase):
                 self.assertIn("tag", value)
                 self.assertIn("description", value)
     
-    def test_schema_attributes(self):
+    def test_exclude_attributes_key(self):
         """
         This test makes sure that the values in the "attributes" key 
         (appName, eventType, subEventtype & sensitive)  are not found in the generated schema

@@ -12,7 +12,9 @@ To run the tests
 python test.py
 ```
 
-It  validates the `set_data_type()` function by  checking each of the 4 data types (STRING, INTEGER, ENUM & ARRAY) by passing actual values into them.
-
-It also validates the  `sniff_schema()` function by passing in a entire expected output schema.
+The test script runs test cases for the different information , these include:
+- padding 
+- excluding the attributes key 
+- setting required=False
+- setting the 4 different datatypes 
 
