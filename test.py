@@ -9,12 +9,7 @@ class TestSchemaSniffer(unittest.TestCase):
     
     def test_padding(self):
         """This function checks if the JSON schema are padded with the 'tag' and 'description'
-        attributes as given in our problem description"""
-
-        with open('data/data_1.json','r') as f:
-            json_data = json.load(f)
-        
-        schema = sniff_schema(json_data)
+        attributes as given in our problem description in PROBLEM.md"""
 
         for key, value in schema.items():
             with self.subTest(key=key):
@@ -23,15 +18,33 @@ class TestSchemaSniffer(unittest.TestCase):
                 self.assertIn("tag", value)
                 self.assertIn("description", value)
     
-    def test_schema_output(self):
-        pass
+    def test_schema_attributes(self):
+        """
+        This test makes sure that the values in the "attributes" key 
+        (appName, eventType, subEventtype & sensitive)  are not found in the generated schema
+        """
+
+        for key, value in schema.items():
+            with self.subTest(key=key):
+                self.assertNotIn("appName", value)
+                self.assertNotIn("eventType", value)
+                self.assertNotIn("subEventType", value)
+                self.assertNotIn("sensitive", value)
+
+
 
     def test_required(self):
-        pass
+        """
+        This checks if all the required attributes in the schema are set to False.
+        """
+        for key, value in schema.items():
+            with self.subTest(key=key):
+                self.assertFalse(value["required"]) # helps us to check if required = False for every value
     
+
     def test_sniff_schema(self):
         """
-        This function checks to see if the data types in the schema are mapped properly, using a mock
+        This function checks to see if all of the 4 data types in the schema are mapped properly, using a mock
         expected schema
         """
 
@@ -52,5 +65,11 @@ class TestSchemaSniffer(unittest.TestCase):
         self.assertEqual(sniff_schema(json_data), expected_schema)
     
 
+
+
 if __name__ == '__main__':
-    unittest.main()
+    with open('data/data_2.json','r') as f:
+        json_data = json.load(f)
+            
+    schema = sniff_schema(json_data)
+    unittest.main() # run our unittest
