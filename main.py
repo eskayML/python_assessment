@@ -31,7 +31,7 @@ def sniff_schema(json_data: Dict[str, Any]) -> Dict:
     return output_schema
 
 
-def main(input_file_path: str, output_file_path: str) -> None:
+def main_function(input_file_path: str, output_file_path: str) -> None:
     with open(input_file_path, "r") as input_file:
         json_data = json.load(input_file)
 
@@ -42,5 +42,5 @@ def main(input_file_path: str, output_file_path: str) -> None:
 
 
 if __name__ == "__main__":
-    main('data/data_1.json', 'schema/schema_1.json')
-    main('data/data_2.json', 'schema/schema_2.json')
+    main_function('data/data_1.json', 'schema/schema_1.json')
+    main_function('data/data_2.json', 'schema/schema_2.json')
