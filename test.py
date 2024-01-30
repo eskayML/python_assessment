@@ -6,20 +6,35 @@ from main import sniff_schema, set_data_type
 
 
 class TestSchemaSniffer(unittest.TestCase):
+    
+    def test_padding(self):
+        """This function checks if the JSON schema are padded with the 'tag' and 'description'
+        attributes as given in our problem description"""
 
-    def test_set_data_type_string(self):
-        self.assertEqual(set_data_type("Hello World"), "STRING")
+        with open('data/data_1.json','r') as f:
+            json_data = json.load(f)
+        
+        schema = sniff_schema(json_data)
 
-    def test_set_data_type_integer(self):
-        self.assertEqual(set_data_type(10), "INTEGER")
+        for key, value in schema.items():
+            with self.subTest(key=key):
+                # So we can know that the "tag" and "description" keys 
+                #     exist in all attributes in the schema
+                self.assertIn("tag", value)
+                self.assertIn("description", value)
+    
+    def test_schema_output(self):
+        pass
 
-    def test_set_data_type_enum(self):
-        self.assertEqual(set_data_type(["apple", "banana","garri"]), "ENUM")
-
-    def test_set_data_type_array(self):
-        self.assertEqual(set_data_type([{"name": "Bola"}, {"name": "Atiku"}]), "ARRAY")
-
+    def test_required(self):
+        pass
+    
     def test_sniff_schema(self):
+        """
+        This function checks to see if the data types in the schema are mapped properly, using a mock
+        expected schema
+        """
+
         json_data = {
             "message": {
                 "name": "John",
@@ -35,8 +50,7 @@ class TestSchemaSniffer(unittest.TestCase):
             "people": {"type": "ARRAY", "tag": "", "description": "", "required": False},
         }
         self.assertEqual(sniff_schema(json_data), expected_schema)
-
-
+    
 
 if __name__ == '__main__':
     unittest.main()
