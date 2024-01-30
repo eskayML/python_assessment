@@ -1,6 +1,6 @@
 ## Python Assessment
 
-> **Important Note:**  For the type checking, data types excluded from the 4 given in [PROBLEM.md](PROBLEM.md) , e.g boolean(true/false), empty arrays [] and also attributes whose 'values were JSON objects' , were ignored in the function and were automatically set to `null` when the schema was generated
+> **Important Note:**  For the type checking, data types excluded from the 4 given in [PROBLEM.md](PROBLEM.md) , e.g boolean(true/false), empty arrays [] and also attributes whose values are JSON objects , were ignored in the function and were automatically set to `null` when the schema was generated
 
 
 ### Unittests
