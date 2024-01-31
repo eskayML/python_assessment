@@ -48,7 +48,7 @@ class TestSchemaSniffer(unittest.TestCase):
         expected schema
         """
 
-        json_data = {
+        mock_json_data = {
             "message": {
                 "name": "John",
                 "age": 45,
@@ -62,7 +62,7 @@ class TestSchemaSniffer(unittest.TestCase):
             "fruits": {"type": "ENUM", "tag": "", "description": "", "required": False},
             "people": {"type": "ARRAY", "tag": "", "description": "", "required": False},
         }
-        self.assertEqual(schema, expected_schema)
+        self.assertEqual(sniff_schema(mock_json_data), expected_schema)
     
 
 
