@@ -4,7 +4,7 @@
 
 
 ### Unittests
-I wrote 5 different unittests using the `unittest` library in python
+I wrote 4 different unittests using the `unittest` library in python
 
 To run the tests
 ```console
