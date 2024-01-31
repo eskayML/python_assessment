@@ -62,7 +62,7 @@ class TestSchemaSniffer(unittest.TestCase):
             "fruits": {"type": "ENUM", "tag": "", "description": "", "required": False},
             "people": {"type": "ARRAY", "tag": "", "description": "", "required": False},
         }
-        self.assertEqual(sniff_schema(json_data), expected_schema)
+        self.assertEqual(schema, expected_schema)
     
 
 
