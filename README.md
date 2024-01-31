@@ -23,7 +23,7 @@ The test script runs test cases for the different information , these include:
 - setting the 4 different datatypes 
 
 
-# Showing Inputs and expected outputs (via the 'type'key)
+# Showing Inputs and expected outputs (via the 'type' key)
 
 #### data_1.json
 ```json
