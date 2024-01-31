@@ -1,5 +1,8 @@
 ## Python Assessment
-    The program `main.py` contains the main script that runs the program and sniffs the schema from the data folder. 
+
+
+The program `main.py` contains the main script that runs the program and sniffs the schema from the data folder. 
+
 
 > **Important Note:**  For the type checking, data types excluded from the 4 given in [PROBLEM.md](PROBLEM.md) , e.g boolean(true/false), empty arrays [] and also attributes whose values are JSON objects , were ignored in the function and were automatically set to `null` when the schema was generated
 
